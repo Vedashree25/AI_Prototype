@@ -4,6 +4,9 @@ import os
 def process_file(file_path: str) -> pd.DataFrame:
     # Normalize the path to avoid issues with backslashes
     file_path = os.path.normpath(file_path)
+    file_path = os.path.join('C:', 'Desktop', 'AI_Prototype', 'Iris.csv')
+    print(repr(file_path))  # Shows the raw string
+
     
     if file_path.endswith('Iris.csv'):
         df = pd.read_csv(file_path)
