@@ -26,9 +26,11 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
 # Example usage
 if __name__ == "__main__":
+    # Use raw string to avoid escape sequence issues
     file_path = r'C:\Desktop\AI_Prototype\Iris.csv'
     df = process_file(file_path)
     cleaned_df = clean_data(df)
     print(cleaned_df.head())
+
 
 
