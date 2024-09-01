@@ -8,7 +8,7 @@ def process_file(file_path: str) -> pd.DataFrame:
     elif file_path.endswith(r'C:\Desktop\AI_Prototype\global.json'):
         df = pd.read_json(file_path)
         
-    elif file_path.endswith(r'C:\Desktop\AI_Prototype\Sample - Superstore.xlsx'):
+    elif file_path.endswith(r'C:\Desktop\AI_Prototype\Sample - Superstore.xls'):
         df = pd.read_excel(file_path)
     
     else:
