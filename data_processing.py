@@ -4,17 +4,17 @@ import os
 def process_file(file_path: str) -> pd.DataFrame:
     # Normalize the path to avoid issues with backslashes
     file_path = os.path.normpath(file_path)
-    file_path = os.path.join('C:', 'Desktop', 'AI_Prototype', 'Iris.csv')
+    file_path = os.path.join('C:', 'Desktop', 'AI_Prototype', 'Global_Superstore2.csv')
     print(repr(file_path))  # Shows the raw string
 
     
-    if file_path.endswith('Iris.csv'):
+    if file_path.endswith("C:\Desktop\AI_Prototype\Global_Superstore2.csv"):
         df = pd.read_csv(file_path)
       
-    elif file_path.endswith('global.json'):
+    elif file_path.endswith("C:\Desktop\AI_Prototype\iris.json"):
         df = pd.read_json(file_path)
         
-    elif file_path.endswith('Sample - Superstore.xlsx'):
+    elif file_path.endswith("C:\Desktop\AI_Prototype\marketingexcel.xlsx"):
         df = pd.read_excel(file_path)
     
     else:
