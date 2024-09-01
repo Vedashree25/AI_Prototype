@@ -22,18 +22,29 @@ def process_file(file_path: str) -> pd.DataFrame:
     
     return df
 
-def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    # Forward fill missing values
-    df = df.ffill()
-    return df
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
 
-# Example usage
+def clean_and_preprocess_data(data: pd.DataFrame):
+    imputer = SimpleImputer(strategy='mean')
+    data_imputed = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
+    
+    scaler = StandardScaler()
+    data_scaled = pd.DataFrame(scaler.fit_transform(data_imputed), columns=data.columns)
+    
+    return data_scaled
+    
 if __name__ == "__main__":
-    # Use raw string to avoid escape sequence issues
-    file_path = r'C:\Desktop\AI_Prototype\Iris.csv'
-    df = process_file(file_path)
-    cleaned_df = clean_data(df)
-    print(cleaned_df.head())
+file_path = 'C:\Desktop\AI_Prototype\Global_Superstore2.csv'  
+data = load_data(file_path)
+cleaned_data = clean_and_preprocess_data(data)
+
+print(cleaned_data.head())
+
+
+
+
+
 
 
 
